@@ -3,8 +3,10 @@ package com.codepath.bestsellerlistapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.codepath.bestsellerlistapp.R.id
 
 /**
@@ -31,6 +33,9 @@ class BestSellerBooksRecyclerViewAdapter(
         var mItem: BestSellerBook? = null
         val mBookTitle: TextView = mView.findViewById<View>(id.book_title) as TextView
         val mBookAuthor: TextView = mView.findViewById<View>(id.book_author) as TextView
+        val mBookRanking: TextView = mView.findViewById<View>(id.book_ranking) as TextView
+        val mBookDescription: TextView = mView.findViewById<View>(id.book_description) as TextView
+        val mBookImage: ImageView = mView.findViewById<View>(id.book_image) as ImageView
 
         override fun toString(): String {
             return mBookTitle.toString() + " '" + mBookAuthor.text + "'"
@@ -46,6 +51,13 @@ class BestSellerBooksRecyclerViewAdapter(
         holder.mItem = book
         holder.mBookTitle.text = book.title
         holder.mBookAuthor.text = book.author
+        holder.mBookRanking.text = book.rank.toString()
+        holder.mBookDescription.text = book.description
+
+        Glide.with(holder.mView)
+            .load(book.bookImageUrl)
+            .centerInside()
+            .into(holder.mBookImage)
 
         holder.mView.setOnClickListener {
             holder.mItem?.let { book ->
