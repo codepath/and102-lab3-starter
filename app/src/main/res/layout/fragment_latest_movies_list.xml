@@ -7,14 +7,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:name="com.codepath.bestsellerlistapp.BestSellerBooksFragment"
+        android:name="com.codepath.bestsellerlistapp.LatestMovieFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".BestSellerBooksFragment"
-        tools:listitem="@layout/fragment_best_seller_book" />
+        tools:listitem="@layout/fragment_latest_movies" />
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progress"

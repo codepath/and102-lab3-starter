@@ -13,22 +13,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
-import com.codepath.bestsellerlistapp.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
-import org.json.JSONObject
 
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "A7Q9JMPLClsVHwq1koGCcChr5XrXk9xg"
+private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
  * recyclerView, and performs the network calls to the NY Times API.
  */
-class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
+class LatestMoviesFragment : Fragment(), OnListFragmentInteractionListener {
 
     /*
      * Constructing the view
@@ -37,11 +35,11 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_best_seller_books_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_latest_movies_list, container, false)
         val progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
         val recyclerView = view.findViewById<View>(R.id.list) as RecyclerView
         val context = view.context
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerView.layoutManager = GridLayoutManager(context, 1)
         updateAdapter(progressBar, recyclerView)
         return view
     }
@@ -59,7 +57,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
         params ["api-key"] = API_KEY
         // Using the client, perform the HTTP request
         client[
-            "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json",
+                "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1",
             params,
             object : JsonHttpResponseHandler()
 
@@ -77,15 +75,15 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                 progressBar.hide()
 
                 //TODO - Parse JSON into Models
-                val resultJSON:JSONObject =json.jsonObject.get("results") as JSONObject
-                val booksRawJSON:String =resultJSON.get("books").toString()
+                val resultJSON:String =json.jsonObject.getJSONArray("results").toString()
+
 
                 val gson = Gson()
-                val arrayBookType = object: TypeToken<List<BestSellerBook>>() {}.type
+                val arrayBookType = object: TypeToken<List<LatestMovies>>() {}.type
 
 
-                val models : List<BestSellerBook> = gson.fromJson(booksRawJSON,  arrayBookType) // Fix me!
-                recyclerView.adapter = BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
+                val models : List<LatestMovies> = gson.fromJson(resultJSON,  arrayBookType) // Fix me!
+                recyclerView.adapter = LatestMoviesRecyclerViewAdapter(models, this@LatestMoviesFragment)
 
                 // Look for this in Logcat:
                 Log.d("BestSellerBooksFragment", "response successful")
@@ -116,7 +114,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
     /*
      * What happens when a particular book is clicked.
      */
-    override fun onItemClick(item: BestSellerBook) {
+    override fun onItemClick(item: LatestMovies) {
         Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
     }
 
