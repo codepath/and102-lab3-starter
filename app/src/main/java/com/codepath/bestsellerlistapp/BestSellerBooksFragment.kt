@@ -23,7 +23,7 @@ import kotlin.math.log
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "aKHlNdtpvo6PwVCXObE8F8etKJSSXakd"
+private const val API_KEY = ""
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
