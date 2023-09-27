@@ -9,20 +9,66 @@
 
     <TextView
         android:id="@+id/book_title"
-        android:textAppearance="?attr/textAppearanceListItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:text="Title"
+        android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/book_author"
+        android:text="Author"
         android:textAppearance="?attr/textAppearanceListItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/book_title"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+    <Button
+        android:id="@+id/amazon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy on Amazon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        android:backgroundTint="#567b95"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:fontFamily="sans-serif-light"
+        android:maxLines="4"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:text="Descrption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_author" />
+
+    <TextView
+        android:id="@+id/ranking"
+        android:textSize="22sp"
+        android:fontFamily="serif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ranking"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
