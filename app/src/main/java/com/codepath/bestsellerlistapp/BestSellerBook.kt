@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
  */
 class BestSellerBook {
     @SerializedName("rank")
-    var rank = 0
+    var rank: Int? = null
 
     @JvmField
     @SerializedName("title")
@@ -20,11 +20,15 @@ class BestSellerBook {
     @SerializedName("author")
     var author: String? = null
 
-    //TODO bookImageUrl
+    @JvmField
+    @SerializedName("book_image")
+    var bookImageUrl: String? = null
 
+    @JvmField
+    @SerializedName("description")
+    var description: String? = null
 
-    //TODO description
-
-
-    //TODO-STRETCH-GOALS amazonUrl
+    @JvmField
+    @SerializedName("amazon_product_url")
+    var amazonUrl: String? = null
 }
