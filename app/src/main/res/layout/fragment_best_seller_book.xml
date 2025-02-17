@@ -9,20 +9,73 @@
 
     <TextView
         android:id="@+id/book_title"
-        android:textAppearance="?attr/textAppearanceListItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Title"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/book_image" />
 
     <TextView
         android:id="@+id/book_author"
-        android:textAppearance="?attr/textAppearanceListItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/book_title"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Author"
+        android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/book_title" />
+
+    <TextView
+        android:id="@+id/ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="#"
+        android:textSize="25dp"
+        android:typeface="serif"
+        app:layout_constraintEnd_toStartOf="@+id/book_image"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="100dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/book_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Description"
+        android:ellipsize="end"
+        android:maxLines="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_author" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#567b95"
+        android:text="BUY ON AMAZON"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
