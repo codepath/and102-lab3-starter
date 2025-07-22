@@ -36,7 +36,7 @@ class NationalParksRecyclerViewAdapter(
         val park = parks[position]
 
         holder.mItem = park
-        holder.mParkLocation.text = park.name
+        holder.mParkName.text = park.name
         holder.mParkDescription.text = park.description
 
         holder.mView.setOnClickListener {
