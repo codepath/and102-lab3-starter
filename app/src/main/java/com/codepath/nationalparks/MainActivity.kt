@@ -2,8 +2,6 @@ package com.codepath.nationalparks
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.codepath.nationalparks.R
-import com.codepath.nationalparks.NationalParksFragment
 
 
 /**

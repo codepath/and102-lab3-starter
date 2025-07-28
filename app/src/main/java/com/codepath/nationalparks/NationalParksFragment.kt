@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.codepath.nationalparks.R
 
 
 // --------------------------------//
@@ -69,7 +67,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
 
                 //TODO - Parse JSON into Models
 
-                val models : List<NationalPark> = null // Fix me!
+                val models : List<NationalPark> = mutableListOf() // Fix me!
                 recyclerView.adapter = NationalParksRecyclerViewAdapter(models, this@NationalParksFragment)
 
                 // Look for this in Logcat:
@@ -103,7 +101,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
      * What happens when a particular park is clicked.
      */
     override fun onItemClick(item: NationalPark) {
-        Toast.makeText(context, "test: " + item.name, Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Park Name: " + item.name, Toast.LENGTH_LONG).show()
     }
 
 }
