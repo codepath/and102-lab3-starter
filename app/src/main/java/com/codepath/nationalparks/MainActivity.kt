@@ -7,7 +7,7 @@ import com.codepath.nationalparks.NationalParksFragment
 
 
 /**
- * The MainActivity for the BestSellerList app.
+ * The MainActivity for the NationalParks app.
  * Launches a [NationalParksFragment].
  */
 class MainActivity : AppCompatActivity() {

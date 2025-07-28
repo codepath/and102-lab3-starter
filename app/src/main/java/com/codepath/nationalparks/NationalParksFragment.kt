@@ -36,7 +36,6 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
             val recyclerView = view.findViewById<View>(R.id.list) as RecyclerView
             val context = view.context
 
-            // ✅ Switch from GridLayoutManager to LinearLayoutManager (1 column)
             recyclerView.layoutManager = LinearLayoutManager(context)
 
             updateAdapter(progressBar, recyclerView)
