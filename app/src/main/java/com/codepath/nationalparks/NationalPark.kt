@@ -26,10 +26,7 @@ class NationalPark {
     var location: String? = null
 
     //TODO parkImageUrl
-    /*@JvmField
-    @SerializedName("images[0].url")
-    var imageUrl: String? = null
-     */
+
 
     //TODO-STRETCH-GOALS
 }
